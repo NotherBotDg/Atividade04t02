@@ -30,9 +30,15 @@ public class Principal {
 	// TODO: Crie um programa que leia o nome e a idade de uma pessoa
 	// e exiba uma mensagem de boas-vindas personalizada
 	// Exemplo: "Olá João! Você tem 20 anos. Seja bem-vindo(a)!"
+	
 	public static void questao1_Scanner(Scanner scan) {
 		System.out.println("=== QUESTÃO 1 - SCANNER ===");
-
+		System.out.print("Informe seu nome: ");
+		String nome = scan.nextLine();
+		System.out.print("Informe sua idade: ");
+		int idade = scan.nextInt();
+		scan.nextLine(); 
+		System.out.println("\nOlá " + nome + "! Você tem " + idade + " anos. Seja bem-vindo(a)!");
 	}
 	
 	// ========================================
@@ -44,7 +50,10 @@ public class Principal {
 	public static void questao2_Print() {
 		System.out.println("=== QUESTÃO 2 - PRINT ===");
 		// SEU CÓDIGO AQUI
-		
+		 int numero = 5;
+		    for (int i = 1; i <= 10; i++) {
+		        System.out.println(numero + " x " + i + " = " + (numero * i));
+		    }
 		System.out.println();
 	}
 	
@@ -58,6 +67,13 @@ public class Principal {
 		System.out.println("=== QUESTÃO 3 - FOR ===");
 		// SEU CÓDIGO AQUI
 		
+		int soma = 0;
+
+	    for (int i = 1; i <= 100; i++) {
+	        soma += i; // soma = soma + i
+	    }
+
+	    System.out.println("A soma dos números de 1 até 100 é: " + soma);
 		System.out.println();
 	}
 	
@@ -73,6 +89,19 @@ public class Principal {
 		System.out.println("Digite sua nota (0 a 10):");
 		// SEU CÓDIGO AQUI
 		
+		 System.out.print("Digite sua nota (0 a 10): ");
+		    
+		    double nota = scan.nextDouble();
+		    scan.nextLine(); // limpar o buffer
+
+		    if (nota >= 7) {
+		        System.out.println("Parabéns! Você foi APROVADO!");
+		    } else if (nota >= 4) {
+		        System.out.println("Você está em RECUPERAÇÃO. Estude mais!");
+		    } else {
+		        System.out.println("Infelizmente você foi REPROVADO. Tente novamente!");
+		    }
+		    
 		System.out.println();
 	}
 	
@@ -85,10 +114,28 @@ public class Principal {
 		System.out.println("=== QUESTÃO 5 - WHILE ===");
 		System.out.println("Digite números inteiros (digite 0 para parar):");
 		// SEU CÓDIGO AQUI
+		System.out.println("Digite números inteiros (digite 0 para parar):");
+
+	    int soma = 0;
+	    int numero;
+
+	    while (true) {
+	        System.out.print("Número: ");
+	        numero = scan.nextInt();
+	        
+	        if (numero == 0) {
+	            break; // encerra o laço
+	        }
+	        
+	        soma += numero;
+	    }
+
+	    System.out.println("\nA soma dos números digitados é: " + soma);
 		
 		System.out.println();
 	}
 	
+
 	// ========================================
 	// QUESTÃO 6 - MÉTODOS (Função)
 	// ========================================
@@ -98,10 +145,22 @@ public class Principal {
 	public static void questao6_Metodos() {
 		System.out.println("=== QUESTÃO 6 - MÉTODOS ===");
 		// SEU CÓDIGO AQUI
-		
-		System.out.println();
+		int a = 10;
+	    int b = 20;
+	    int maior = encontrarMaior(a, b);
+	    System.out.println("O maior número entre " + a + " e " + b + " é: " + maior);
+	    System.out.println();
+	}
+
+	public static int encontrarMaior(int x, int y) {
+	    if (x > y) {
+	        return x;
+	    } else {
+	        return y;
+	    }
 	}
 	
+
 	// ========================================
 	// QUESTÃO 7 - SCANNER + IF
 	// ========================================
@@ -112,6 +171,17 @@ public class Principal {
 		System.out.println("Digite um número inteiro:");
 		// SEU CÓDIGO AQUI
 		
+		 System.out.print("Digite um número inteiro: ");
+		    
+		    int numero = scan.nextInt();
+		    scan.nextLine(); // limpar buffer
+		    
+		    if (numero % 2 == 0) {
+		        System.out.println("O número " + numero + " é PAR.");
+		    } else {
+		        System.out.println("O número " + numero + " é ÍMPAR.");
+		    }
+		    
 		System.out.println();
 	}
 	
@@ -124,6 +194,10 @@ public class Principal {
 		System.out.println("=== QUESTÃO 8 - FOR + PRINT ===");
 		// SEU CÓDIGO AQUI
 		
+		for (int i = 2; i <= 20; i += 2) {
+	        System.out.println(i);
+	    }
+
 		System.out.println();
 	}
 	
@@ -137,9 +211,29 @@ public class Principal {
 		System.out.println("Digite números (digite um número negativo para parar):");
 		// SEU CÓDIGO AQUI
 		
+		System.out.println("Digite números (digite um número negativo para parar):");
+
+	    int numero;
+	    int contadorPositivos = 0;
+
+	    while (true) {
+	        System.out.print("Número: ");
+	        numero = scan.nextInt();
+	        
+	        if (numero < 0) {
+	            break; // encerra o laço se for negativo
+	        }
+
+	        if (numero > 0) {
+	            contadorPositivos++;
+	        }
+	    }
+
+	    System.out.println("\nVocê digitou " + contadorPositivos + " números positivos.");
 		System.out.println();
 	}
 	
+
 	// ========================================
 	// QUESTÃO 10 - MÉTODOS + FOR
 	// ========================================
@@ -150,26 +244,18 @@ public class Principal {
 	public static void questao10_MetodosFor() {
 		System.out.println("=== QUESTÃO 10 - MÉTODOS + FOR ===");
 		// SEU CÓDIGO AQUI
-		
-		System.out.println();
+		System.out.println("Fatorial de 5 = " + calcularFatorial(5));
+	    System.out.println("Fatorial de 7 = " + calcularFatorial(7));
+	    System.out.println();
+	}
+
+	public static int calcularFatorial(int n) {
+	    int fatorial = 1;
+	    for(int i = 1; i <= n; i++) {
+	        fatorial *= i;
+	    }
+	    return fatorial;
 	}
 	
-	// ========================================
-	// MÉTODO PARA QUESTÃO 6
-	// ========================================
-	// TODO: Implemente este método para retornar o maior entre dois números
-	public static int encontrarMaior(int a, int b) {
-		// SEU CÓDIGO AQUI
-		return 0; // Remova esta linha e implemente a lógica
-	}
-	
-	// ========================================
-	// MÉTODO PARA QUESTÃO 10
-	// ========================================
-	// TODO: Implemente este método para calcular o fatorial de um número
-	// Use um laço for para fazer o cálculo
-	public static long calcularFatorial(int n) {
-		// SEU CÓDIGO AQUI
-		return 0; // Remova esta linha e implemente a lógica
-	}
+
 }
